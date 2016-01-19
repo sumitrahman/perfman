@@ -1,0 +1,201 @@
+outcome,gender,ethnicity,disability,age
+3,male,WB,not disabled,1
+2,female,NK,not disabled,3
+2,male,WB,not disabled,4
+3,male,WB,not disabled,3
+1,male,PNS,not disabled,4
+2,female,BAME,not disabled,4
+3,female,NK,disabled,4
+1,female,PNS,disabled,3
+3,female,NK,not disabled,2
+3,male,BAME,disabled,4
+4,female,WB,not disabled,1
+4,female,WB,not disabled,1
+4,female,WB,not disabled,3
+2,male,WB,not disabled,3
+4,male,BAME,not disabled,2
+3,female,NK,not disabled,2
+3,female,NK,not disabled,4
+1,female,BAME,not disabled,1
+3,female,PNS,PNS,3
+2,female,WB,not disabled,3
+3,female,WB,not disabled,4
+3,male,PNS,not disabled,3
+3,female,PNS,not disabled,4
+3,male,WB,not disabled,2
+3,male,NK,NK,2
+4,female,NK,not disabled,2
+2,male,WB,not disabled,3
+3,female,WB,PNS,3
+3,male,NK,not disabled,1
+3,male,WB,not disabled,3
+3,male,NK,PNS,3
+3,male,BAME,not disabled,2
+2,female,NK,not disabled,3
+4,female,BAME,not disabled,2
+3,male,WB,not disabled,2
+3,male,NK,not disabled,3
+3,male,NK,PNS,3
+3,female,WB,not disabled,2
+3,female,WB,not disabled,3
+3,female,WB,disabled,4
+2,male,BAME,NK,3
+3,male,NK,NK,3
+3,male,BAME,not disabled,4
+3,female,PNS,not disabled,3
+3,male,NK,not disabled,2
+2,male,WB,disabled,3
+4,female,WB,not disabled,4
+2,male,WB,not disabled,2
+4,male,WB,not disabled,3
+3,female,BAME,not disabled,3
+3,female,BAME,PNS,2
+3,male,NK,not disabled,3
+4,female,WB,not disabled,2
+3,male,WB,not disabled,2
+2,male,BAME,not disabled,4
+1,male,NK,disabled,4
+3,male,NK,not disabled,2
+1,male,WB,not disabled,4
+3,male,WB,not disabled,4
+3,male,BAME,PNS,2
+3,male,PNS,not disabled,3
+3,female,NK,disabled,4
+2,female,NK,not disabled,4
+3,male,BAME,not disabled,4
+3,female,WB,not disabled,4
+4,female,WB,not disabled,4
+3,male,WB,not disabled,4
+2,male,WB,not disabled,3
+3,male,NK,not disabled,4
+3,female,NK,not disabled,2
+4,female,WB,PNS,3
+2,male,BAME,not disabled,2
+1,female,BAME,not disabled,4
+4,female,BAME,not disabled,3
+3,male,WB,disabled,2
+1,male,NK,NK,2
+3,male,WB,not disabled,2
+4,male,NK,not disabled,3
+4,male,WB,not disabled,4
+3,female,BAME,not disabled,3
+2,male,WB,not disabled,4
+2,female,BAME,not disabled,3
+3,female,NK,not disabled,2
+4,female,WB,not disabled,3
+1,male,NK,not disabled,3
+3,female,WB,disabled,4
+3,female,WB,not disabled,3
+3,female,WB,not disabled,4
+3,female,NK,not disabled,4
+3,male,NK,not disabled,4
+1,male,NK,not disabled,3
+3,female,NK,not disabled,3
+1,female,BAME,not disabled,4
+2,male,WB,not disabled,4
+2,female,BAME,not disabled,3
+2,male,PNS,not disabled,3
+1,female,NK,not disabled,4
+3,female,WB,NK,2
+2,male,BAME,not disabled,1
+2,female,WB,disabled,3
+3,female,BAME,not disabled,3
+3,female,WB,PNS,3
+3,male,WB,not disabled,1
+3,male,WB,PNS,3
+4,female,BAME,not disabled,3
+3,female,BAME,not disabled,3
+4,female,WB,not disabled,1
+4,female,WB,not disabled,2
+3,female,PNS,not disabled,2
+2,female,BAME,not disabled,3
+2,female,NK,not disabled,3
+3,female,WB,not disabled,3
+1,male,NK,not disabled,3
+3,female,NK,not disabled,4
+1,male,NK,not disabled,3
+4,male,WB,not disabled,3
+3,female,PNS,not disabled,3
+3,male,WB,not disabled,4
+3,male,WB,not disabled,4
+3,male,NK,not disabled,4
+4,male,WB,not disabled,3
+2,male,BAME,not disabled,3
+3,female,PNS,NK,3
+3,male,WB,not disabled,3
+3,female,WB,not disabled,3
+3,male,WB,not disabled,2
+1,male,NK,not disabled,3
+3,female,BAME,not disabled,3
+3,male,PNS,not disabled,2
+3,female,BAME,not disabled,3
+4,female,BAME,not disabled,2
+1,male,BAME,not disabled,2
+3,female,WB,not disabled,2
+3,female,PNS,not disabled,4
+4,female,BAME,not disabled,4
+4,female,WB,NK,3
+3,female,WB,not disabled,2
+1,female,WB,not disabled,4
+3,male,WB,not disabled,2
+1,male,BAME,not disabled,4
+1,female,WB,not disabled,3
+3,male,BAME,not disabled,3
+3,male,NK,not disabled,4
+3,male,NK,not disabled,4
+1,male,BAME,not disabled,3
+3,female,NK,not disabled,2
+3,female,BAME,not disabled,4
+2,female,WB,not disabled,4
+3,male,WB,not disabled,2
+2,female,WB,not disabled,2
+2,female,WB,not disabled,4
+3,male,WB,not disabled,2
+3,female,WB,not disabled,2
+3,female,PNS,not disabled,4
+1,male,BAME,NK,3
+3,male,NK,not disabled,4
+2,female,BAME,not disabled,4
+3,male,NK,disabled,4
+3,male,WB,NK,3
+3,male,PNS,not disabled,3
+3,female,NK,not disabled,2
+3,male,BAME,not disabled,3
+4,female,BAME,not disabled,2
+3,male,BAME,not disabled,2
+1,female,NK,not disabled,4
+4,male,WB,not disabled,3
+2,male,NK,disabled,3
+2,male,WB,not disabled,3
+3,male,PNS,NK,2
+3,male,NK,not disabled,3
+4,male,BAME,not disabled,2
+1,male,NK,not disabled,3
+3,female,PNS,not disabled,1
+3,male,BAME,disabled,1
+4,female,BAME,disabled,1
+2,male,NK,disabled,1
+1,female,NK,not disabled,4
+3,female,WB,not disabled,4
+3,male,WB,not disabled,2
+4,female,NK,not disabled,4
+3,female,NK,not disabled,3
+3,male,WB,not disabled,2
+3,male,PNS,not disabled,2
+2,male,WB,not disabled,4
+3,male,PNS,not disabled,3
+3,male,PNS,not disabled,3
+1,female,NK,not disabled,2
+3,male,WB,not disabled,1
+3,female,WB,disabled,4
+3,male,BAME,not disabled,1
+3,female,NK,not disabled,4
+3,female,BAME,disabled,3
+3,female,PNS,not disabled,4
+3,male,BAME,not disabled,2
+3,female,WB,not disabled,3
+3,female,WB,not disabled,3
+3,female,WB,not disabled,3
+3,male,PNS,not disabled,2
+1,male,NK,not disabled,3
+1,male,WB,not disabled,3

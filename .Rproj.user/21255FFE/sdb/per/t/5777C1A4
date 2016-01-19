@@ -1,0 +1,16 @@
+{
+    "contents" : "require(MASS)\n\n# require(foreign)\n# dat <- read.dta(\"http://www.ats.ucla.edu/stat/data/ologit.dta\")\n\ntest.data <- read.csv(\"~/GitHub/perfman/test data.csv\")\ntest.data$age <- factor(test.data$age, levels = c(1,2,3,4))\ntest.data$outcome <- factor(test.data$outcome, levels = c(1,2,3,4))\n\n\n#ask for what to do with missing values\n#default is to replace all missing values NA with \"NA\"\n\nfit<-polr(data = test.data)\n\n#create function P.X(X, outcome, variable, value) that will be treated\n#as a function of X and give a specific probability for given outcome k for \n#specific value of a specific variable\n\ncuts<-numeric(length(fit$zeta)+2)\ncuts[2:(length(fit$zeta)+1)]<-fit$zeta\ncuts[c(1,length(cuts))]<-c(-Inf,Inf)\n\nvariables<-attr(fit$terms,\"term.labels\")\n\n#create the coefficient lookup function\ncoef.lookup<-function(variable,value){\n    if (!(variable %in% variables)) {\n        stop(\"variable not in model\")\n    } else if (!(value %in% fit$xlevels[[variable]])) {\n        stop(\"value not observed for this variable\")\n    } else if (fit$xlevels[[variable]][[1]]==value) {\n        return (0)\n    } else\n        return (fit$coefficients[[paste0(variable,value)]])\n}\n\nP.X<-function(X,outcome,variable,value){\n    (1+exp(X+coef.lookup(variable,value)-cuts[outcome+1]))^-1-(1+exp(X+coef.lookup(variable,value)-cuts[outcome]))^-1\n}\n\n#get observed proportions of each variable in the data\ncounts.raw<-apply(test.data,2,table)\nproportions.raw<-lapply(counts.raw,FUN = function(x){x/nrow(test.data)})\n\n\n#create fucntion proportions.implied(X, outcome=k, variable=v)\n#that will give the implied proportion for outcome k in BIS assuming X and v\n\n#GIVEN VARIABLE e,g, GENDER, what is the implied proportion for outcome k?\n\nimplied.proportion<-function(X,outcome,variable){\n    implieds<-rep(0,length(fit$xlevels[[variable]]))\n    for (i in fit$xlevels[[variable]]){\n        implieds[i]<-P.X(X=X,outcome = outcome,variable = variable,value = i)*\n            proportions.raw[[variable]][[i]]\n    }\n    return(sum(implieds))\n}\n\n#GIVEN VARIABLE, find the sqaured error as a function of X\n\nsquared.error<-function(X,variable){\n    outcome.errors<-rep(0,length(fit$lev))\n    for (i in 1:length(fit$lev)){\n        outcome.errors[i]<-\n            (implied.proportion(X=X,outcome = i,variable = variable)-\n                 proportions.raw[[1]][[i]])^2\n    }\n    return(sum(outcome.errors))\n}\n\n#find answer for given variable\nrecommend<-function(variable){\n    if (!(variable %in% variables)) {\n        stop(\"variable not in model\")\n    }\n    optimised<-optimise(f = function(x){squared.error(x,variable)},interval = c(-100,100))\n    message(\"The recommended value of X is \",optimised$minimum)\n#create data frame with outcomes along the top and variable values down the side\n}\n",
+    "created" : 1451521043385.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3177291068",
+    "id" : "5777C1A4",
+    "lastKnownWriteTime" : 1453243608,
+    "path" : "~/GitHub/perfman/R/perfman.R",
+    "project_path" : "R/perfman.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

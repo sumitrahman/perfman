@@ -1,9 +1,9 @@
 Package: perfman
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
+Title: produce estimates from ordered logistic regressions that fit close to observed marginal probabilities
+Version: 0.0.9
 Date: 2015-12-30
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
+Author: Sumit Rahman
+Maintainer: Sumit Rahman <sumitrahman@yahoo.com>
 Description: More about what it does (maybe more than one line)
 License: What license is it under?

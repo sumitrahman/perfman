@@ -1,26 +1,32 @@
-require(MASS)
+library(MASS)
+#remove the library command when creating the package!
 
-# require(foreign)
-# dat <- read.dta("http://www.ats.ucla.edu/stat/data/ologit.dta")
+#test.data <- read.csv("~/GitHub/perfman/test data.csv")
+#test.data$age <- factor(test.data$age, levels = c(1,2,3,4))
+#test.data$outcome <- factor(test.data$outcome, levels = c(1,2,3,4))
 
-test.data <- read.csv("~/GitHub/perfman/test data.csv")
-test.data$age <- factor(test.data$age, levels = c(1,2,3,4))
-test.data$outcome <- factor(test.data$outcome, levels = c(1,2,3,4))
-
+#should we validate the dataset?
 
 #ask for what to do with missing values
-#default is to replace all missing values NA with "NA"
+#default can be to replace all missing values NA with "NA"
 
+fit.model<-function(dataset){
 #fit the ordered logistic model
-fit<-polr(data = test.data)
+fit<-polr(data = dataset)
 
 #create the cuts as a numeric vector
 cuts<-numeric(length(fit$zeta)+2)
 cuts[2:(length(fit$zeta)+1)]<-fit$zeta
 cuts[c(1,length(cuts))]<-c(-Inf,Inf)
 
+#get observed proportions of each variable in the data (including outcome)
+counts.raw<-apply(dataset,2,table)
+proportions.raw<-lapply(counts.raw,FUN = function(x){x/nrow(dataset)})
+
 #create a vector of names of explanatory variables
 variables<-attr(fit$terms,"term.labels")
+
+}
 
 #create the coefficient lookup function
 #a convenient function for reading off the estimated coefficients for all
@@ -41,16 +47,15 @@ coef.lookup<-function(variable,value){
 #specific value of a specific variable
 #what happens with invalid variables/values??
 P.X<-function(X,outcome,variable,value){
-    (1+exp(X+coef.lookup(variable,value)-cuts[outcome+1]))^-1-(1+exp(X+coef.lookup(variable,value)-cuts[outcome]))^-1
+    (1+exp(X+coef.lookup(variable,value)-cuts[outcome+1]))^-1-
+    (1+exp(X+coef.lookup(variable,value)-cuts[outcome]  ))^-1
 }
 
-#get observed proportions of each variable in the data (including outcome)
-counts.raw<-apply(test.data,2,table)
-proportions.raw<-lapply(counts.raw,FUN = function(x){x/nrow(test.data)})
 
 
-#create fucntion proportions.implied(X, outcome=k, variable=v)
-#that will give the implied proportion for outcome k in BIS assuming X and v
+#create function proportions.implied(X, outcome=k, variable=v)
+#that will give the implied proportion for outcome k in the population assuming
+#X and v
 
 #GIVEN VARIABLE e,g, GENDER, what is the implied proportion for outcome k?
 
@@ -84,8 +89,8 @@ recommend<-function(variable){
                         interval = c(-100,100))
     message("The recommended value of X is ",optimised$minimum)
 #create data frame with outcomes along the top and variable values down the side
-#    optimised.probs<-matrix(nrow = length(fit$lev),
- #                           ncol = length(fit$xlevels[[variable]]))
+#optimised.probs<-matrix(nrow = length(fit$lev),
+#                        ncol = length(fit$xlevels[[variable]]))
     
     optimised.probs<-data.frame(sapply(fit$xlevels[[variable]],
                                 FUN=function(q){

@@ -1,9 +1,16 @@
 Package: perfman
 Type: Package
-Title: produce estimates from ordered logistic regressions that fit close to observed marginal probabilities
-Version: 0.0.9
-Date: 2015-12-30
+Title: Probability Estimates From Ordered Logistic Regression
+Version: 0.0.0.9000
+Date: 2015-06-18
 Author: Sumit Rahman
 Maintainer: Sumit Rahman <sumitrahman@yahoo.com>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Description: This package implements the method used by the author to report
+    probability distributions following the use of ordered logistic regressions.
+    Currently designed to work when all explanatory variables are categorical
+    and there are no interactions.  The dataset needs to have the first column
+    named 'outcome' and be an ordered factor, as in the 'test.data' example.
+License: MIT + file LICENSE
+Imports: MASS
+Depends: R (>= 3.2.2), MASS
+LazyData: true

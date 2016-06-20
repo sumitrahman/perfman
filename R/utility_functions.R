@@ -20,9 +20,7 @@
 #'  of the cumulative logit (once you add the relevent cut).
 #'
 #'@examples
-#'\dontrun{
 #'coef.lookup("gender","female")
-#'}
 coef.lookup<-function(variable,value){
     if (!(variable %in% variables)) {
         stop("variable not in model")
@@ -66,9 +64,9 @@ coef.lookup<-function(variable,value){
 #'@return The calculated probability corresponding to the values you have
 #'  specified.
 #'@examples
-#'\dontrun{
 #'P.X(-1.9,2,"gender","female")
-#'}
+#'
+#'@export
 P.X<-function(X,outcome,variable,value){
     (1+exp(X+coef.lookup(variable,value)-cuts[outcome+1]))^-1-
     (1+exp(X+coef.lookup(variable,value)-cuts[outcome]  ))^-1
@@ -108,9 +106,7 @@ P.X<-function(X,outcome,variable,value){
 #'  specified.
 #'
 #'@examples
-#'\dontrun{
 #'implied.proportion(-1.9,2,"gender")
-#'}
 implied.proportion<-function(X,outcome,variable){
     implieds<-rep(0,length(fit$xlevels[[variable]]))
     for (i in fit$xlevels[[variable]]){
@@ -147,9 +143,7 @@ implied.proportion<-function(X,outcome,variable){
 #'variable of interest.
 #'
 #'@examples
-#'\dontrun{
 #'squared.error(-1.9,"gender")
-#'}
 squared.error<-function(X,variable){
     outcome.errors<-rep(0,length(fit$lev))
     for (i in 1:length(fit$lev)){
@@ -191,9 +185,9 @@ squared.error<-function(X,variable){
 #'probabilities.
 #'
 #'@examples
-#'\dontrun{
 #'recommend("gender")
-#'}
+#'
+#'@export
 recommend<-function(variable, lower.bound=-100, upper.bound=100){
     if (!(variable %in% variables)) {
         stop("variable not in model")

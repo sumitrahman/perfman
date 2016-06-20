@@ -3,7 +3,7 @@
 #'\code{fit.model} fits the ordered logistic model and sets up some useful 
 #'variables for the other \code{perfman} functions.
 #'
-#'The function fits the model using \code{MASS:polr}.  This is saved to
+#'The function fits the model using \code{MASS::polr}.  This is saved to
 #'\code{fit}.
 #'
 #'Then the vector \code{cuts} is created which are the cuts from the model
@@ -28,24 +28,23 @@
 #'  function in the \code{MASS} package for more details.
 #'
 #'@examples
-#'\dontrun{
 #'fit.model(test.data)
-#'}
+#'@export
 fit.model<-function(dataset){
 
 #fit the ordered logistic model
-fit<-polr(data = dataset)
+fit<<-MASS::polr(data = dataset)
 
 #create the cuts as a numeric vector
-cuts<-numeric(length(fit$zeta)+2)
-cuts[2:(length(fit$zeta)+1)]<-fit$zeta
-cuts[c(1,length(cuts))]<-c(-Inf,Inf)
+cuts<<-numeric(length(fit$zeta)+2)
+cuts[2:(length(fit$zeta)+1)]<<-fit$zeta
+cuts[c(1,length(cuts))]<<-c(-Inf,Inf)
 
 #get observed proportions of each variable in the data (including outcome)
-counts.raw<-apply(dataset,2,table)
-proportions.raw<-lapply(counts.raw,FUN = function(x){x/nrow(dataset)})
+counts.raw<<-apply(dataset,2,table)
+proportions.raw<<-lapply(counts.raw,FUN = function(x){x/nrow(dataset)})
 
 #create a vector of names of explanatory variables
-variables<-attr(fit$terms,"term.labels")
+variables<<-attr(fit$terms,"term.labels")
 
 }

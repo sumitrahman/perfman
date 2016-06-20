@@ -11,6 +11,7 @@ Description: This package implements the method used by the author to report
     and there are no interactions.  The dataset needs to have the first column
     named 'outcome' and be an ordered factor, as in the 'test.data' example.
 License: MIT + file LICENSE
-Imports: MASS
-Depends: R (>= 3.2.2), MASS
+Depends: R (>= 3.2.2)
 LazyData: true
+RoxygenNote: 5.0.1
+Imports: MASS

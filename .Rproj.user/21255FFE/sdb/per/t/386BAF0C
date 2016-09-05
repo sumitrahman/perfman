@@ -1,0 +1,16 @@
+{
+    "contents" : "#'Fitting the model\n#'\n#'\\code{fit.model} fits the ordered logistic model and sets up some useful \n#'variables for the other \\code{perfman} functions.\n#'\n#'The function fits the model using \\code{MASS::polr}.  This is saved to\n#'\\code{fit}.\n#'\n#'Then the vector \\code{cuts} is created which are the cuts from the model\n#'(these divide the cumulative density into the areas set for the ordered\n#'outcomes), including \\code{-Inf} for the zeroth cut and \\code{Inf} for the end\n#'point.  This makes it convenient for another \\code{perfman} function to use.\n#'\n#'Next two sets of tables are created which create the marginal distributions\n#'from the dataset that is being analysed.  \\code{counts.raw} gives you the\n#'actual counts, while \\code{proportions.raw} gives you the proportions.\n#'\n#'Finally a vector of variables is created, again for the convenience of other \n#'functions in \\code{perfman}.  This vector simply contains the names of the \n#'explanatory variables from the model.\n#'\n#'@param dataset A data frame whose first column is an ordered numeric factor\n#'  containing the positive integers and whose subsequent columns are the\n#'  explanatory variables for modelling. For analysis\n#'  in this package all the explanatory variables must be factors.\n#'\n#'@return An object of class \\code{polr}.  See documentation for the \\code{polr}\n#'  function in the \\code{MASS} package for more details.\n#'\n#'@examples\n#'fit.model(test.data)\n#'@export\nfit.model<-function(dataset){\n\n#fit the ordered logistic model\nfit<<-MASS::polr(data = dataset)\n\n#create the cuts as a numeric vector\ncuts<<-numeric(length(fit$zeta)+2)\ncuts[2:(length(fit$zeta)+1)]<<-fit$zeta\ncuts[c(1,length(cuts))]<<-c(-Inf,Inf)\n\n#get observed proportions of each variable in the data (including outcome)\ncounts.raw<<-apply(dataset,2,table)\nproportions.raw<<-lapply(counts.raw,FUN = function(x){x/nrow(dataset)})\n\n#create a vector of names of explanatory variables\nvariables<<-attr(fit$terms,\"term.labels\")\n\n}\n",
+    "created" : 1470233517409.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "897228162",
+    "id" : "386BAF0C",
+    "lastKnownWriteTime" : 1466442425,
+    "path" : "~/GitHub/perfman/R/fit_model.R",
+    "project_path" : "R/fit_model.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

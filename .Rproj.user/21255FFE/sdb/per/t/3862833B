@@ -1,0 +1,16 @@
+{
+    "contents" : "#' Artificial dataset of performance outcomes and demographic variables.\n#'\n#' This dataset has been created to try out the \\code{perfman} package\n#' functions on.  It illustrates the format that the package currently requires\n#' the data to be in to work straightforwardly.\n#' \n#' Each row represents one person.  This person's outcome from the performance\n#' management process is recorded: this is a whole number between 1 and 4 where\n#' 1 represents the worst score and 4 the best.  Each person has observations\n#' recorded of their gender, ethnicity, disability and age.  Ethnicity and\n#' disability are self-reported and suffer from non-response, but the\n#' non-response categories are coded for as separate categories (and not coded\n#' using \\code{NA} or similar).\n#' \n#' It is important to note that the first column has to be called \\code{outcome}\n#' and has to be an ordered factor using integers starting from 1 in sequence.  \n#' Note, too, that the other columns represent variables that will be fitted in\n#' the ordered logistic model, and they need to be caegorical (and therefore \n#' represented using factors).\n#'\n#' @format A data frame with 200 rows and 5 variables.  Each row represents a \n#' person.  The first column is an ordered factor containing all the integers \n#' from 1 to 4.\n#' \\describe{\n#'   \\item{outcome}{Result from the performance management process for this \n#'   person, where 1 is the worst category and 4 the best.  There are four \n#'   possible outcomes.}\n#'   \\item{gender}{Gender of the person.  A variable with two factors\n#'      \\code{\"female\"} and \\code{\"male\"}}\n#'   \\item{ethnicity}{Ethnicity of the person (self-reported).  A variable with \n#'      4 factors: \\code{\"BAME\"} for Black, Asian or Minority Ethnicity; \n#'      \\code{\"WB\"} for White British; \\code{\"PNS\"} for people who declared they\n#'      preferred not to say; and \\code{\"NK\"} where no declaration has been made ('not \n#'      known').}\n#'   \\item{disability}{Disability status of the person (self-reported).  A \n#'      variable with 4 factors: \\code{\"disabled\"}; \\code{\"not disabled\"};\n#'      \\code{\"PNS\"} for people who declared they preferred not\n#'      to say; and \\code{\"NK\"} where no declaration has been made ('not \n#'      known').}\n#'   \\item{age}{Age of person, coded as \\code{1} for 16-29 year-olds; \\code{2} \n#'      for 30-39 year-olds; \\code{3} for 40-49 year-olds; and \\code{4} for \n#'      staff older than 49.}\n#' }\n#'\n#' @docType data\n#' @usage data(test.data)\n\"test.data\"\n\n",
+    "created" : 1466635040249.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2808788506",
+    "id" : "3862833B",
+    "lastKnownWriteTime" : 1466635756,
+    "path" : "~/GitHub/perfman/R/test.data.R",
+    "project_path" : "R/test.data.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

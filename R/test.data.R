@@ -41,3 +41,8 @@
 #'      for 30-39 year-olds; \code{3} for 40-49 year-olds; and \code{4} for 
 #'      staff older than 49.}
 #' }
+#'
+#' @docType data
+#' @usage data(test.data)
+"test.data"
+
